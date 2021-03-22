@@ -23,7 +23,8 @@ jobs:
 
     - name: Build monorepo
       env:
-        COMMIT_RANGE: "${{github.event.before}}..${{github.sha}}"
+#        COMMIT_RANGE: "${{github.event.before}}..${{github.sha}}"
+        COMMIT_RANGE: "${{github.event.pull_request.base.ref}}..${{github.event.pull_request.base.sha}}"
         # Compatibility for CircleCI 2.0
         CIRCLE_SHA1: ${{github.sha}}
       shell: bash
